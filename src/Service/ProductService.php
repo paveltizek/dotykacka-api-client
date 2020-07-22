@@ -40,9 +40,13 @@ class ProductService extends ServiceBase
 
         $list = array();
 
-        foreach ($response as $item) {
-            $responseObject = new Product($item);
-            $list[] = $responseObject;
+        if($response){
+            foreach ($response as $item) {
+                $responseObject = new Product($item);
+                $list[] = $responseObject;
+            }
+        }else{
+            return [];
         }
 
         return $list;
